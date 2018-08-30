@@ -15,7 +15,7 @@ files = [re.findall('.+/(.+)', url)[0] for url in urls]
 
 count = {}
 for file in files:
-    try:
-        count[file] = count.get(count[file]) + 1
-    except:
+    if not file in count:
         count[file] = 1
+    else:
+        count[file] += 1
